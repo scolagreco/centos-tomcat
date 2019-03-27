@@ -1,15 +1,14 @@
 FROM scolagreco/centos-java:latest
 
 COPY script/* /root/
+ADD apache-tomcat-8.5.39.tar.gz /root/
 
 # USERS
 RUN useradd -ms /bin/bash tomcat \
     && echo "tomcat:tomcat" | chpasswd \
 # TOMCAT
-    && wget http://it.apache.contactlab.it/tomcat/tomcat-8/v8.5.31/bin/apache-tomcat-8.5.31.zip \
-    && unzip apache-tomcat-8.5.31.zip \
-    && rm -Rf apache-tomcat-8.5.31.zip \
-    && mv apache-tomcat-8.5.31 /usr/local/tomcat \
+    && cd /root/ \
+    && mv apache-tomcat-8.5.39 /usr/local/tomcat \
     && mkdir /usr/local/tomcat/conf/Catalina \
     && mkdir /usr/local/tomcat/conf/Catalina/localhost \
     && mv /root/logging.properties /usr/local/tomcat/conf/ \
@@ -24,7 +23,7 @@ RUN useradd -ms /bin/bash tomcat \
 
 # Metadata params
 ARG BUILD_DATE
-ARG VERSION="v8.5.31"
+ARG VERSION="v8.5.39"
 ARG VCS_URL="https://github.com/scolagreco/centos-tomcat.git"
 ARG VCS_REF
 

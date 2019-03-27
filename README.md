@@ -13,3 +13,6 @@ Dockerfile per creare una Docker Image di CentOS con Tomcat 8.
 Derivata dall'immagine [centos-java](https://hub.docker.com/r/scolagreco/centos-java/)
 
 ## Versions
+
+- Tomcat: 8.5.39
+- Java: la versione usata in [questa immagine](https://hub.docker.com/r/scolagreco/centos-java).
