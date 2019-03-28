@@ -38,5 +38,4 @@ LABEL maintainer="Stefano Colagreco <stefano@colagreco.it>" \
 
 EXPOSE 8080 8009
 
-ENTRYPOINT /etc/init.d/tomcat restart && bash
-
+CMD service tomcat start && tail -f /usr/local/tomcat/logs/catalina.out
